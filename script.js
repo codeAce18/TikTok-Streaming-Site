@@ -1,4 +1,4 @@
-// import { Chart } from "@/components/ui/chart"
+
 // Smooth scrolling for navigation links
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize animations
