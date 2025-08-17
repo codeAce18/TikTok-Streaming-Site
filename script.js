@@ -182,7 +182,7 @@ function initCharts() {
               data: config.data,
               backgroundColor: config.colors,
               borderWidth: 0,
-              cutout: "60%",
+              cutout: "70%",
             },
           ],
         },
@@ -200,58 +200,106 @@ function initCharts() {
   })
 
   // Comparison charts
-  const hybridCtx = document.getElementById("hybridChart")
-  if (hybridCtx) {
-    new Chart(hybridCtx, {
-      type: "doughnut",
-      data: {
-        datasets: [
-          {
-            data: [45, 28, 27],
-            backgroundColor: ["#ff0050", "#4ecdc4", "#95a5a6"],
-            borderWidth: 0,
-            cutout: "60%",
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-      },
-    })
-  }
+ // Plugin to draw text inside the doughnut
+const centerTextPlugin = {
+  id: "centerText",
+  beforeDraw(chart) {
+    const { width, height } = chart;
+    const ctx = chart.ctx;
+    ctx.save();
 
-  const othersCtx = document.getElementById("othersChart")
-  if (othersCtx) {
-    new Chart(othersCtx, {
-      type: "doughnut",
-      data: {
-        datasets: [
-          {
-            data: [20, 80],
-            backgroundColor: ["#ff0050", "#95a5a6"],
-            borderWidth: 0,
-            cutout: "60%",
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
+    const lines = chart.config.options.plugins.centerText?.lines || [];
+
+    if (lines.length) {
+      let totalHeight = 0;
+      // calculate total text block height
+      lines.forEach((line) => {
+        totalHeight += line.fontSize * 1.2; // line-height factor
+      });
+
+      let y = height / 2 - totalHeight / 2; // start from top of center block
+
+      lines.forEach((line) => {
+        const fontFamily = line.fontFamily || "sans-serif"; // 👈 allow custom font
+        ctx.font = `${line.fontSize}px '${fontFamily}'`;
+        ctx.fillStyle = line.color || "#000";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        ctx.fillText(line.text, width / 2, y);
+        y += line.fontSize * 1.2; // move down for next line
+      });
+    }
+
+    ctx.restore();
+  },
+};
+
+
+// Hybrid chart
+const hybridCtx = document.getElementById("hybridChart");
+if (hybridCtx) {
+  new Chart(hybridCtx, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          data: [45, 28, 27],
+          backgroundColor: ["#ff0050", "#4ecdc4", "#95a5a6"],
+          borderWidth: 0,
+          cutout: "80%",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        centerText: {
+          lines: [
+            { text: "45%", fontSize: 30, color: "#FF0050", fontFamily: "Noto Serif JP" },
+            { text: "20万円以上", fontSize: 14, color: "#333333", fontFamily: "Noto Serif JP" },
+          ],
         },
       },
-    })
-  }
+    },
+    plugins: [centerTextPlugin],
+  });
 }
+
+// Others chart
+const othersCtx = document.getElementById("othersChart");
+if (othersCtx) {
+  new Chart(othersCtx, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          data: [20, 80],
+          backgroundColor: ["#ff0050", "#95a5a6"],
+          borderWidth: 0,
+          cutout: "80%",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        centerText: {
+          lines: [
+            { text: "20%", fontSize: 30, color: "#FF0050", fontFamily: "Noto Serif JP" },
+            { text: "20万円以上", fontSize: 14, color: "#333333", fontFamily: "Noto Serif JP" },
+          ],
+        },
+      },
+    },
+    plugins: [centerTextPlugin],
+  });
+}
+
+
 
 // Checkbox interactions
 function initCheckboxes() {
@@ -347,4 +395,4 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     document.body.style.opacity = "1"
   }, 100)
-})
+})}
