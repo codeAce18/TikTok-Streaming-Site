@@ -1665,6 +1665,7 @@
     }
 
     .campaign-mobile-h2 {
+      display: block;
       font-size: 20px !important;
       line-height: 28px;
       font-weight: 700;
