@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // Scroll animations
 function initScrollAnimations() {
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
+    threshold: 0.3, 
+    rootMargin: "0px 0px 0px 0px",
   }
 
   const observer = new IntersectionObserver((entries) => {
@@ -39,7 +39,7 @@ function initScrollAnimations() {
 
   animatedElements.forEach((el, index) => {
     el.classList.add("fade-in")
-    el.style.transitionDelay = `${index * 0.1}s`
+    // el.style.transitionDelay = `${index * 0.05}s`
     observer.observe(el)
   })
 

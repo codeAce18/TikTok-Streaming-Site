@@ -1359,7 +1359,7 @@
   .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.6s ease;
+    transition: all 0.3s ease;
   }
   
   .fade-in.visible {
@@ -1370,7 +1370,7 @@
   .slide-in-left {
     opacity: 0;
     transform: translateX(-50px);
-    transition: all 0.6s ease;
+    transition: all 0.3s ease;
   }
   
   .slide-in-left.visible {
@@ -1381,7 +1381,7 @@
   .slide-in-right {
     opacity: 0;
     transform: translateX(50px);
-    transition: all 0.6s ease;
+    transition: all 0.3s ease;
   }
   
   .slide-in-right.visible {
@@ -1392,7 +1392,7 @@
   .scale-in {
     opacity: 0;
     transform: scale(0.8);
-    transition: all 0.6s ease;
+    transition: all 0.3s ease;
   }
   
   .scale-in.visible {
