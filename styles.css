@@ -487,22 +487,38 @@
   
   /* Campaign Section */
   .campaign {
-    padding: 100px 0;
+    padding: 100px 0 50px 0;
     background: #f8f9fa;
   }
   
   .campaign-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+  }
+
+  .bg-white-campaign {
+    background-color: #FFFFFF;
+    box-shadow: 
+    0px 0px 0px 0px #00000000,
+
+    0px 0px 0px 0px #00000000,
+
+    0px 10px 15px -3px #0000001A,
+
+    0px 4px 6px -4px #0000001A;
+    border-radius: 12px;
+    padding: 20px 50px;
+
   }
   
   .campaign-badge {
     background: #ff0050;
     color: white;
     padding: 8px 20px;
-    border-radius: 20px;
+    border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
+    transform: skew(-20deg);
     display: inline-block;
     margin-bottom: 20px;
   }
@@ -517,7 +533,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 25px;
   }
   
   .campaign-card {
@@ -556,35 +572,41 @@
   
   .countdown {
     text-align: center;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
   
   .countdown-label {
     display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #FFF;
+    padding-top: 10px;
+  }
+
+  .countdown-wrapper {
+    background: #1F2937;
+    padding: 15px 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
   }
   
   .countdown-timer {
     display: flex;
     justify-content: center;
     gap: 20px;
-    background: #2c3e50;
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 500px;
-    margin: 0 auto;
   }
-  
+
+
   .time-unit {
+    margin-top: 15px;
     text-align: center;
     color: white;
     background: #ff0050;
-    width: 60px;
+    width: 50px;
     height: 85px;
-    border-radius: 10px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -592,8 +614,8 @@
   }
   
   .time-number {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 700;
     
   }
   
@@ -707,6 +729,7 @@
     background: #F3F4F6;
     padding: 15px;
     border-radius: 10px;
+    margin-top: 15px;
   }
   
   .income-label {
@@ -911,12 +934,12 @@
   color: #333;
 }
 
-.chart-wrapper {
+/* .chart-wrapper {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
   aspect-ratio: 1;
-}
+} */
 
 .comparison-legend {
   margin-top: 20px;
