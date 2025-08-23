@@ -591,12 +591,23 @@
     max-width: 500px;
     margin: 0 auto;
   }
+
+  .mobile-campaign-card {
+    display: none;
+  }
+
+  .mobile-campaign-card-2 {
+    display: none;
+  }
+  
   
   .countdown-timer {
     display: flex;
     justify-content: center;
     gap: 20px;
   }
+
+  
 
 
   .time-unit {
@@ -808,6 +819,11 @@
     color: #666;
     line-height: 1.6;
   }
+
+
+  .mobile {
+    display: none;
+  }
   
   /* About Section */
 /* About Section - Fixed */
@@ -896,6 +912,10 @@
   font-size: 14px;
   color: #666;
   margin: 0;
+}
+
+.mobile-badge {
+  display: none;
 }
 
 .comparison-section {
@@ -1377,6 +1397,17 @@
   .footer-links a:hover {
     color: white;
   }
+
+  .mobile-steps {
+    display: none;
+  }
+
+  .step-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 16px;
+  }
   
   /* Animations */
   .fade-in {
@@ -1495,6 +1526,14 @@
   }
   
   @media (max-width: 480px) {
+
+    .steps-grid {
+      display: none;
+    }
+
+    .mobile-steps {
+      display: block;
+    }
 
     .mobile-features-grid {
       display: grid;
@@ -1659,8 +1698,14 @@
       font-weight: 400;
     }
 
+    .mobile {
+      display: block;
+    }
+    
+
     .work-examples {
       padding: 30px 0;
+      background: #FFF2F6;
     }
   
 
@@ -1695,7 +1740,8 @@
     }
 
     .cta-section {
-      padding: 20px 0;
+      padding: 20px 0 50px 0;
+      background: #FFF;
     }
 
     .dont {
@@ -1704,6 +1750,7 @@
     
     .steps {
       padding: 30px 0;
+      background: #fff;
     }
 
     .campaign-header {
@@ -1723,6 +1770,12 @@
     .section-title {
       font-size: 20px;
       margin-bottom: 20px;
+    }
+
+    .show-not {
+      text-align: center;
+      /* margin-bottom: 40px; */
+      display: none;
     }
   
     .feature-card,
@@ -1755,6 +1808,7 @@
 
     .faq {
       padding: 30px 0;
+      background: #FFF2F6;
     }
 
     .gradient-text {
@@ -1768,6 +1822,48 @@
     .tiktok-badge-large {
       display: none;
       
+    }
+
+    .mobile-badge {
+      display: block;
+      background-color: #FF0050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 174px;
+      height: 28px;
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin: 0 auto;
+      margin-bottom: 15px;
+    }
+    
+    .campaign-badge {
+      display: none;
+    }
+
+    .mobile-campaign-card {
+      display: block;
+      background: #FEF9C3;
+      border: 1px solid #EAB308;
+      padding: 12.4px 12.4px 11.6px 15.6px;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      gap: 10px;
+    }
+
+    .mobile-campaign-card-2 {
+      display: block;
+      background: #E8F5E8;
+      border: 1px solid #25D366;
+      padding: 12.4px 12.4px 11.6px 15.6px;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      gap: 10px;
+      margin-top: 15px;
     }
 
     .comparison-charts {
@@ -1802,8 +1898,24 @@
   
     }
 
+    .bg-white-campaign {
+      background-color: #FFFFFF;
+      box-shadow: 
+      0px 0px 0px 0px #00000000,
+  
+      0px 0px 0px 0px #00000000,
+  
+      0px 10px 15px -3px #0000001A,
+  
+      0px 4px 6px -4px #0000001A;
+      border-radius: 12px;
+      padding: 20px 20px;
+  
+    }
+
     .campaign {
       padding: 50px 0;
+      background: #FFF2F6;
     }
 
     .cta-flex {
@@ -1829,6 +1941,7 @@
 
     .testimonials {
       padding: 50px 0;
+      background: #fff;
     }
 
     .campaign-card h3 {
@@ -1844,6 +1957,8 @@
       font-size: 14px;
     }
 
+  
+
     .hero-content {
       padding-top: 800px;
       padding-left: 0 !important;
@@ -1855,6 +1970,7 @@
   
     .campaign-cards {
       grid-template-columns: 1fr;
+      display: none;
     }
   
     .before-after {

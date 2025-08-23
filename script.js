@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize charts
   initCharts()
-
-  // Initialize checkbox interactions
-  initCheckboxes()
 })
 
 // Scroll animations
@@ -100,15 +97,22 @@ function initCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
     const seconds = Math.floor((distance % (1000 * 60)) / 1000)
 
-    document.getElementById("days").textContent = days
-    document.getElementById("hours").textContent = hours
-    document.getElementById("minutes").textContent = minutes
-    document.getElementById("seconds").textContent = seconds
+    const daysElements = document.querySelectorAll("#days")
+    const hoursElements = document.querySelectorAll("#hours")
+    const minutesElements = document.querySelectorAll("#minutes")
+    const secondsElements = document.querySelectorAll("#seconds")
+
+    daysElements.forEach((el) => (el.textContent = days))
+    hoursElements.forEach((el) => (el.textContent = hours))
+    minutesElements.forEach((el) => (el.textContent = minutes))
+    secondsElements.forEach((el) => (el.textContent = seconds))
 
     if (distance < 0) {
       clearInterval(timer)
-      document.querySelector(".countdown-timer").innerHTML =
-        '<div style="color: white; font-size: 18px;">キャンペーン終了</div>'
+      const countdownTimers = document.querySelectorAll(".countdown-timer")
+      countdownTimers.forEach((timer) => {
+        timer.innerHTML = '<div style="color: white; font-size: 18px;">キャンペーン終了</div>'
+      })
     }
   }, 1000)
 }
@@ -301,23 +305,7 @@ if (othersCtx) {
 
 
 
-// Checkbox interactions
-function initCheckboxes() {
-  const checkboxes = document.querySelectorAll('.cta-option input[type="checkbox"]')
 
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      const option = this.closest(".cta-option")
-      if (this.checked) {
-        option.style.background = "#ffb3d1"
-        option.style.transform = "scale(1.02)"
-      } else {
-        option.style.background = "#ffe8f0"
-        option.style.transform = "scale(1)"
-      }
-    })
-  })
-}
 
 // Button click animations
 document.addEventListener("click", (e) => {
